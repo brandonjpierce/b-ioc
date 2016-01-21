@@ -1,0 +1,20 @@
+{
+  "name": "b-ioc",
+  "version": "0.1.0",
+  "description": "A magic free, dirt simple IoC container for Node.",
+  "main": "src/index.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tap-spec": "^4.1.1",
+    "tape": "^4.4.0"
+  },
+  "scripts": {
+    "test": "tape test/index.js | tap-spec"
+  },
+  "author": "Brandon Pierce <brandon@brandonjpierce.com> (http://brandonjpierce.com)",
+  "license": "MIT"
+}
