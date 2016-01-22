@@ -1,4 +1,4 @@
-# b-ioc
+# [b-ioc](http://brandonjpierce.github.io/b-ioc/)
 
 b-ioc is a tiny and magic free IoC container for Node. It helps you manage dependencies and facilitates an easy testing environment for your modules.
 
@@ -32,3 +32,8 @@ var classB = Ioc.use('classB');
 ```
 
 Be sure to consult the documentation for more examples and an in depth look at the API.
+
+### Documentation
+
+* [Getting Started](http://brandonjpierce.github.io/b-ioc/docs/introduction/getting-started.html)
+* [Api](http://brandonjpierce.github.io/b-ioc/docs/api/index.html)
