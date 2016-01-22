@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>use | b-ioc</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.5.2">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    
+    <link rel="prev" href="../../docs/api/singleton.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="2.3" data-chapter-title="use" data-filepath="docs/api/use.md" data-basepath="../.." data-revision="Fri Jan 22 2016 10:35:53 GMT-0500 (EST)">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Read Me
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="docs/introduction/index.html">
+            
+                
+                    <a href="../../docs/introduction/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Introduction
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="docs/introduction/getting-started.html">
+            
+                
+                    <a href="../../docs/introduction/getting-started.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Getting Started
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="docs/introduction/di.html">
+            
+                
+                    <a href="../../docs/introduction/di.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Dependency Injection
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="docs/introduction/ioc.html">
+            
+                
+                    <a href="../../docs/introduction/ioc.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Inversion of Control
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="docs/api/index.html">
+            
+                
+                    <a href="../../docs/api/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        API Reference
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="docs/api/bind.html">
+            
+                
+                    <a href="../../docs/api/bind.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        bind
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="docs/api/singleton.html">
+            
+                
+                    <a href="../../docs/api/singleton.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        singleton
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="docs/api/use.html">
+            
+                
+                    <a href="../../docs/api/use.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        use
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../" >b-ioc</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="usename-args">.use(name, ...args)</h1>
+<h4 id="arguments">Arguments</h4>
+<ol>
+<li><code>name</code> <em>(String)</em>: The key you want to find in the IoC container.</li>
+<li><code>args</code> <em>(Mixed)</em> <em>optional</em>: Any additional argument you want to pass to the factory function of the binded object.</li>
+</ol>
+<h4 id="returns">Returns</h4>
+<p>(<em><code>Object</code></em>): The bound object from the IoC container.</p>
+<h4 id="usage">Usage</h4>
+<p>Grabs a object from the IoC container. If the object was added with <code>.bind</code> it will return a new instance of that object, if it was binded with <code>.singleton</code> then it will be the same instance every time.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Ioc = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;b-ioc&apos;</span>);
+
+<span class="hljs-keyword">var</span> fooInstance = Ioc.use(<span class="hljs-string">&apos;foo&apos;</span>);
+</code></pre>
+<p><code>.use</code> can be called inside of <code>.bind</code> or <code>.singleton</code> to pull in additional dependencies from the IoC container. In this case it does matter if <code>dep1</code> was registered before or after the <code>foo</code> binding, as long as its been registered <code>b-ioc</code> will find it.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Ioc = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;b-ioc&apos;</span>);
+
+Ioc.bind(<span class="hljs-string">&apos;foo&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> dep1 = Ioc.use(<span class="hljs-string">&apos;dep1&apos;</span>);
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Foo(dep1);
+});
+</code></pre>
+<h4 id="resolving-dependencies">Resolving Dependencies</h4>
+<p>Resolving dependencies is a sequential process and will happen in the following order:</p>
+<ol>
+<li>Looks inside the IoC container for values binded with <code>.bind</code></li>
+<li>Looks inside the IoC container for values binded with <code>.singleton</code></li>
+<li>Tries requiring from <code>node_modules</code> based on supplied key</li>
+</ol>
+<h4 id="cyclic-dependencies">Cyclic Dependencies</h4>
+<p>Cyclic dependencies are tracked in <code>b-ioc</code> and will throw an error if they are attempted.</p>
+<h4 id="automatic-dependency-injection">Automatic Dependency Injection</h4>
+<p><code>b-ioc</code> does not use any introspecting to automatically resolve dependencies based on argument names passed into constructors. <code>b-ioc</code> is meant to be as explicit as possible so you can always have 100% clarity on what you are pulling in as dependencies.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../docs/api/singleton.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: singleton"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"github":{"url":"https://github.com/brandonjpierce/b-ioc"},"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
