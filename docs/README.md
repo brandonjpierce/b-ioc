@@ -9,3 +9,4 @@
   * [bind](docs/api/bind.md)
   * [singleton](docs/api/singleton.md)
   * [use](docs/api/use.md)
+  * [make](docs/api/make.md)
