@@ -38,7 +38,7 @@ test('IoC throws if .bind() implementation is wrong', function(t) {
 });
 
 // reset container for the following tests
-Ioc.clearAll();
+Ioc.clear();
 
 test('IoC throws if a cyclic dependency is detected', function(t) {
   t.plan(1);
@@ -57,7 +57,7 @@ test('IoC throws if a cyclic dependency is detected', function(t) {
 });
 
 // reset container for the following tests
-Ioc.clearAll();
+Ioc.clear();
 
 test('IoC resolves local bindings', function(t) {
   t.plan(3);

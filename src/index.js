@@ -40,7 +40,7 @@ exports.getSingletons = function getSingletons() {
  * Resets container to default state
  * @method clearAll
  */
-exports.clearAll = function clearAll() {
+exports.clear = function clearAll() {
   bindings = {};
   resolvedBindings = {};
   singletons = {};
