@@ -1,5 +1,5 @@
 function A(name) {
-  this.name = name || 'brandon';
+  this.name = name || 'Brandon';
   console.log('Module A constructed with args', arguments)
 }
 

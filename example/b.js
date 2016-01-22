@@ -1,9 +1,9 @@
 function B(a) {
-  this.a = a;
+  this.name = a.name;
 }
 
 B.prototype.hello = function() {
-  console.log(`Module b says hello ${this.a.name}!`);
+  console.log(`Module b says hello ${this.name}!`);
 }
 
 module.exports = B;

@@ -3,6 +3,7 @@
 var A = require('./a');
 var B = require('./b');
 var C = require('./c');
+var MakeClass = require('./make');
 
 var Ioc = require('../src');
 
@@ -15,14 +16,15 @@ Ioc.bind('b', function(name) {
 });
 
 Ioc.bind('c', function(name1, name2) {
-  return new C(Ioc.use('a', name1), Ioc.use('a', name2));
+  return new C(Ioc.use('a', name1), Ioc.use('b', name2));
 });
-
 
 var jack = Ioc.use('a', 'Jack');
 var jill = Ioc.use('b', 'Jill');
 var couple = Ioc.use('c', 'Brandon', 'Corinne');
+var make = Ioc.make(MakeClass);
 
 jack.hello();
 jill.hello();
 couple.hello();
+make.hello();

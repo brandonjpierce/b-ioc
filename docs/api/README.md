@@ -3,6 +3,7 @@
 * [bind](bind.md)
 * [singleton](singleton.md)
 * [use](use.md)
+* [make](make.md)
 
 # Importing
 
@@ -10,7 +11,7 @@
 ```js
 import Ioc from 'b-ioc';
 // or
-import { use, bind, singleton } from 'b-ioc';
+import { use, bind, singleton, make } from 'b-ioc';
 ```
 
 #### ES5
