@@ -1,11 +1,11 @@
 'use strict';
 
-var util = require('util');
+const util = require('util');
 
-var bindings = {};
-var resolvedBindings = {};
-var singletons = {};
-var resolvedSingletons = {};
+let bindings = {};
+let resolvedBindings = {};
+let singletons = {};
+let resolvedSingletons = {};
 
 /**
  * Checks if a key is in an object
@@ -147,7 +147,7 @@ exports.make = function make(Obj) {
   if (dependencies.length) {
     var resolved = [];
 
-    dependencies.forEach(function(dependency) {
+    dependencies.forEach(dependency => {
       if (!util.isString(dependency) && !util.isObject(dependency)) {
         throw new Error('static .inject implementation error, a string or object is required.');
       }
