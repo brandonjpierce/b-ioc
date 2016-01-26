@@ -1,0 +1,43 @@
+{
+  "name": "b-ioc",
+  "version": "1.2.0",
+  "description": "A magic free, dirt simple IoC container for Node.",
+  "main": "src/index.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "keywords": [
+    "require",
+    "dependency",
+    "dependencies",
+    "di",
+    "dependency injection",
+    "ioc",
+    "inversion of control"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "gitbook-plugin-github": "^2.0.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.4.0"
+  },
+  "scripts": {
+    "test": "tape test/index.js | tap-spec",
+    "docs:prepare": "gitbook install",
+    "docs:watch": "npm run docs:prepare && gitbook serve",
+    "docs:build": "npm run docs:prepare && rm -rf _book && gitbook build",
+    "docs:publish": "npm run docs:build && cd _book && git init && git config user.email 'brandon@brandonjpierce.com' && git commit --allow-empty -m 'Update docs' && git checkout -b gh-pages && git add . && git commit -am 'Update docs' && git push git@github.com:brandonjpierce/b-ioc gh-pages --force"
+  },
+  "author": {
+    "name": "Brandon Pierce",
+    "email": "brandon@brandonjpierce.com",
+    "url": "http://brandonjpierce.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brandonjpierce/b-ioc.git"
+  },
+  "homepage": "https://github.com/brandonjpierce/b-ioc",
+  "license": "MIT"
+}
