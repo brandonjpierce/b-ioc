@@ -18,7 +18,7 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "gitbook-plugin-github": "^2.0.0",
+    "gitbook-plugin-github": "^3.0.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.4.0"
   },
