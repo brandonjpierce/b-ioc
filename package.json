@@ -20,7 +20,7 @@
   "devDependencies": {
     "gitbook-plugin-github": "^2.0.0",
     "tap-spec": "^4.1.1",
-    "tape": "^4.4.0"
+    "tape": "^4.9.0"
   },
   "scripts": {
     "test": "tape test/index.js | tap-spec",
