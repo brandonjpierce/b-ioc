@@ -1,7 +1,7 @@
 {
   "name": "b-ioc",
   "version": "1.2.0",
-  "description": "A magic free, dirt simple IoC container for Node.",
+  "description": "A magic free, dirt simple IoC container for Javascript.",
   "main": "src/index.js",
   "directories": {
     "example": "example",
@@ -16,11 +16,15 @@
     "ioc",
     "inversion of control"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "lodash.isfunction": "^3.0.9",
+    "lodash.isobject": "^3.0.2",
+    "lodash.isstring": "^4.0.1"
+  },
   "devDependencies": {
-    "gitbook-plugin-github": "^2.0.0",
-    "tap-spec": "^4.1.1",
-    "tape": "^4.4.0"
+    "gitbook-plugin-github": "^3.0.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.11.0"
   },
   "scripts": {
     "test": "tape test/index.js | tap-spec",
