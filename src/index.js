@@ -1,13 +1,40 @@
 "use strict";
 
-const isString = require("lodash.isstring");
-const isFunction = require("lodash.isfunction");
-const isObject = require("lodash.isobject");
-
 let bindings = {};
 let resolvedBindings = {};
 let singletons = {};
 let resolvedSingletons = {};
+
+/**
+ * Checks if an object is a string
+ * @method isString
+ * @param  {Object} obj Object we want to check
+ * @return {Boolean} Is the object a string?
+ */
+function isString(obj) {
+  return Object.prototype.toString.call(obj) === "[object String]";
+}
+
+/**
+ * Checks if an object is an object
+ * @method isObject
+ * @param  {Object} obj Object we want to check
+ * @return {Boolean} Is the object a object?
+ */
+function isObject(obj) {
+  var type = typeof obj;
+  return type === "function" || (type === "object" && !!obj);
+}
+
+/**
+ * Checks if an object is a function
+ * @method isFunction
+ * @param  {Object} obj Object we want to check
+ * @return {Boolean} Is the object a function?
+ */
+function isFunction(obj) {
+  return typeof obj == "function" || false;
+}
 
 /**
  * Checks if a key is in an object
