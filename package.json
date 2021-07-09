@@ -1,5 +1,5 @@
 {
-  "name": "b-ioc",
+  "name": "b-ioc-js",
   "version": "2.1.0",
   "description": "A magic free, dirt simple IoC container for Javascript.",
   "main": "src/index.js",
