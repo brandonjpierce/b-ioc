@@ -1,6 +1,6 @@
 {
   "name": "b-ioc",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A magic free, dirt simple IoC container for Javascript.",
   "main": "src/index.js",
   "directories": {
@@ -16,18 +16,16 @@
     "ioc",
     "inversion of control"
   ],
-  "dependencies": {},
   "devDependencies": {
-    "gitbook-plugin-github": "^3.0.0",
-    "tap-spec": "^5.0.0",
-    "tape": "^5.0.0"
+    "jsdoc": "^3.6.7",
+    "tap-spec": "^2.2.2",
+    "tape": "^5.2.2",
+    "tsd-jsdoc": "^2.5.0"
   },
   "scripts": {
     "test": "tape test/index.js | tap-spec",
-    "docs:prepare": "gitbook install",
-    "docs:watch": "npm run docs:prepare && gitbook serve",
-    "docs:build": "npm run docs:prepare && rm -rf _book && gitbook build",
-    "docs:publish": "npm run docs:build && cd _book && git init && git config user.email 'brandon@brandonjpierce.com' && git commit --allow-empty -m 'Update docs' && git checkout -b gh-pages && git add . && git commit -am 'Update docs' && git push git@github.com:brandonjpierce/b-ioc gh-pages --force"
+    "build": "jsdoc -t ./node_modules/tsd-jsdoc/dist -r src -d . && mv types.d.ts src/index.d.ts",
+    "prepublishOnly": "npm run build && npm test"
   },
   "author": {
     "name": "Brandon Pierce",

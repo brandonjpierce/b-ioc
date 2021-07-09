@@ -1,48 +1,27 @@
 "use strict";
+/**
+ * IoC Module
+ * @module b-ioc-js
+ */
 
 let bindings = {};
 let resolvedBindings = {};
 let singletons = {};
 let resolvedSingletons = {};
 
-/**
- * Checks if an object is a string
- * @method isString
- * @param  {Object} obj Object we want to check
- * @return {Boolean} Is the object a string?
- */
 function isString(obj) {
   return Object.prototype.toString.call(obj) === "[object String]";
 }
 
-/**
- * Checks if an object is an object
- * @method isObject
- * @param  {Object} obj Object we want to check
- * @return {Boolean} Is the object a object?
- */
 function isObject(obj) {
   var type = typeof obj;
   return type === "function" || (type === "object" && !!obj);
 }
 
-/**
- * Checks if an object is a function
- * @method isFunction
- * @param  {Object} obj Object we want to check
- * @return {Boolean} Is the object a function?
- */
 function isFunction(obj) {
   return typeof obj == "function" || false;
 }
 
-/**
- * Checks if a key is in an object
- * @method inObject
- * @param  {String} key Key of object
- * @param  {Object} obj Object we want to check
- * @return {Boolean} Is that key in the object?
- */
 function inObject(key, obj) {
   return obj.hasOwnProperty(key);
 }
@@ -67,9 +46,9 @@ exports.getSingletons = function getSingletons() {
 
 /**
  * Resets container to default state
- * @method clearAll
+ * @method clear
  */
-exports.clear = function clearAll() {
+exports.clear = function clear() {
   bindings = {};
   resolvedBindings = {};
   singletons = {};
@@ -80,7 +59,7 @@ exports.clear = function clearAll() {
  * Assigns to our bindings object
  * @method bind
  * @param  {String} binding The name of the IoC binding
- * @param  {Mixed} closure Factory method or value to bind to container
+ * @param  {any} closure Factory method or value to bind to container
  */
 exports.bind = function bind(binding, closure) {
   if (inObject(binding, bindings) || inObject(binding, singletons)) {
@@ -98,7 +77,7 @@ exports.bind = function bind(binding, closure) {
  * Assigns to our singleton object
  * @method singleton
  * @param  {String} binding The name of the IoC binding
- * @param  {function} closure Factory method or value to bind to container
+ * @param  {any} closure Factory method or value to bind to container
  */
 exports.singleton = function singleton(binding, closure) {
   if (inObject(binding, singletons) || inObject(binding, bindings)) {
@@ -110,9 +89,10 @@ exports.singleton = function singleton(binding, closure) {
 
 /**
  * Grabs a binding from the IoC. Leverages node require as a fallback
- * @method use
+ * @template A
+ * @method use<A>
  * @param  {String} binding The name of the binding in the container
- * @return {Object} The instance of the binding
+ * @returns {A} The instance of the binding
  */
 exports.use = function use(binding) {
   var args = Array.prototype.slice.call(arguments, 1);
@@ -154,7 +134,7 @@ exports.use = function use(binding) {
  * Creates an instance of a class and will inject dependencies defined in static
  * inject method. This is an alternative to using Ioc.bind
  * @method make
- * @param  {Function} Obj The class you wish to create a new instance of
+ * @param  {function} Obj The class you wish to create a new instance of
  * @return {Object} The instantiated function instance
  */
 exports.make = function make(Obj) {
