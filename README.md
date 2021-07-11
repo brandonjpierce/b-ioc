@@ -35,5 +35,5 @@ Be sure to consult the documentation for more examples and an in depth look at t
 
 ### Documentation
 
-* [Getting Started](http://brandonjpierce.github.io/b-ioc/docs/introduction/getting-started.html)
-* [Api](http://brandonjpierce.github.io/b-ioc/docs/api/index.html)
+* [Getting Started](https://github.com/kmalakoff/b-ioc/blob/master/README.md)
+* [Api](https://github.com/kmalakoff/b-ioc/blob/master/api.md)
