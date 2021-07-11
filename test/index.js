@@ -1,7 +1,7 @@
 "use strict";
 
 var test = require("tape");
-var tapSpec = require("tap-spec");
+require("@randomgoods/tap-spec");
 
 var Ioc = require("../src");
 

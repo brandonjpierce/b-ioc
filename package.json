@@ -17,15 +17,20 @@
     "inversion of control"
   ],
   "devDependencies": {
+    "@randomgoods/tap-spec": "^5.0.1",
     "jsdoc": "^3.6.7",
-    "tap-spec": "^2.2.2",
+    "jsdoc-to-markdown": "^7.0.1",
+    "retypeapp": "^1.7.0",
     "tape": "^5.2.2",
     "tsd-jsdoc": "^2.5.0"
   },
   "scripts": {
     "test": "tape test/index.js | tap-spec",
     "build": "jsdoc -t ./node_modules/tsd-jsdoc/dist -r src -d . && mv types.d.ts src/index.d.ts",
-    "prepublishOnly": "npm run build && npm test"
+    "prepublishOnly": "npm run build && npm test",
+    "docs:api": "jsdoc2md --files src/**/*.js > api.md",
+    "docs:build": "npm run docs:api && retype init && retype build",
+    "docs:watch": "npm run docs:api && retype watch"
   },
   "author": {
     "name": "Brandon Pierce",
