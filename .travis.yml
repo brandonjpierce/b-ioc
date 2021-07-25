@@ -13,22 +13,6 @@ jobs:
   - stage: Tests
     name: Unit Tests on Windows
     os: windows
-  - stage: release
-    name: Publish to npm
-    if:
-    - tag IS present
-    - branch = master
-    deploy:
-      provider: npm
-      email: kmalakoff@gmail.com
-      api_key:
-        secure: PLyMK2hhpzb+mNyAFPLjcbtwQW4FtcVi+YZ7sRohGNl6DKx8HidQM6VtPvtUFR+R1iECuRGXLuPxoZwjFNiSOGy0kmwCCeniUw0vFVLtdwcyFS4lgoJPjmu630AcwmTd/mmNGegYYlYBBe8rLbjXHWN2uha0IOIp99/gKpuz9bNn8939TKLMMI4qfvHNl4qBmRWu2H7Sl1LVl6e7vD/GPNCyHalMZrGiWPVtj1fYrdo1qiPNEjOjmI3C5ceJlcF0XE81taV9rguz1AxSVPm5L4ggFdm5QYETre2uun9tFtBhGLlOrlhBydzVag/Eyo0IPo2xgRr/fWu4kgMSO3PNufLjP37OWQ5NkxHxLA0Aycp3EJCn7MziivDa5uvvcxlUXCXmeNr/LGTmuEINopIUi1Dm4KB65dmjpAq97VsgRUioFiOmejsUizKu9omy0MQ+uWe7plOhNswD1KI0GtsMllOgUdvGChe5MtTojiIhftJ6OYuy1OiWD0Nn3l2WggPdpi34QBJKc3sdVq8Ei5bRheWUnmdSxiewsANFMhKkRH2jbpXNp5WvLyqa9/ze3R1qi6z+KvhUyorzPRngHA/A6trqTfepQkHpqIBpfzogWZ28rW7HRLX5+U0cjHrNddpKSteJaJbDHM2ELG5UaNSWSV+ro6G9CZ2rCxE6SRiEOQY=
-      on:
-        tags: true
-      skip_cleanup: 'true'
-    install: skip
-    script: skip
-    after_success: skip
 before_install:
 - npm uninstall node-version-use -g
 script:
