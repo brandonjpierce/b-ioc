@@ -1,6 +1,6 @@
 {
   "name": "b-ioc-js",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A magic free, dirt simple IoC container for Javascript.",
   "main": "src/index.js",
   "directories": {
@@ -14,7 +14,9 @@
     "di",
     "dependency injection",
     "ioc",
-    "inversion of control"
+    "inversion of control",
+    "ts",
+    "typescript"
   ],
   "devDependencies": {
     "@randomgoods/tap-spec": "^5.0.1",
