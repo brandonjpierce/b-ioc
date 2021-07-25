@@ -1,35 +1,36 @@
 os: linux
 dist: xenial
 language: node_js
-node_js: 'lts/*'
-
+node_js: lts/*
 jobs:
   include:
-    - stage: 'Tests'
-      name: 'Unit Tests on OSX'
-      os: osx
-    - stage: 'Tests'
-      name: 'Unit Tests on Linux'
-      os: linux
-    - stage: 'Tests'
-      name: 'Unit Tests on Windows'
-      os: windows
-    - stage: release
-      name: 'Publish to npm'
-      if: 
-        - tag IS present
-        - branch = master
-      deploy:
-        provider: npm
-        email: kmalakoff@gmail.com
-        api_token:
-          secure: VB0Kxn16i6NQqnpn/iFttrLe74gXtimlOudn1IbQU+jZbySqg3Ye8Y+BsvM7daypsV1l7e7lR5uZ3awPCAHcywQFS4br+xQiRfIQc11zu0z3klLiZLJKzw1U4lKHv7n+9LYfCdlI3AkFZsYgqMvrMxJVxDyt75VLUZTN/NS8v6kq3W7S1XoQRe2hc2hOmr0c1y5voDAoAAgWzz9Pop2rspH0DXVg1ywFiUua7Q0y3PFDgNlxIdOP2RdyA0d1GpBL/CBQevgsdpH8MsSL0E1C3mfUoQdCdH+xtHC1yADLkAHhIANxcv2XhIk/yxLGNexmQkP6NJiZc1Z+SqA0rUyQoJ2AcffuDim/xDCt4TbwuoxmyvOnoa/pAlhERgBFC+2frsGLNRfBOnVOeO0vlDJWTAQ7Yvn3ton3NaZ1+NsxIY5sCWvMpE39oMh2tiUNqda4Zdf5eFL/GSVcdPt0DOSKre/Vpl5QXV89IL+z1pDhtHWCof2JF3074xtjLfW8quqEtahFLb9hIypScfpBhKin52lz/cn7MFzK8CwBDVMO08k7ESJAYlbzMjfabuWbeZiNZnHRATEHHwoRx9pH2ceSZlrk4FLlCCrcTC10XwKvuhT0fDCPetFsqKk1jYR+ajuk9mQmOD2eCnKCdW2vSrOXpQ+WYBilv8wXt/MiSSbzBiI=
-      install: skip
-      script: skip
-      after_success: skip
-
+  - stage: Tests
+    name: Unit Tests on OSX
+    os: osx
+  - stage: Tests
+    name: Unit Tests on Linux
+    os: linux
+  - stage: Tests
+    name: Unit Tests on Windows
+    os: windows
+  - stage: release
+    name: Publish to npm
+    if:
+    - tag IS present
+    - branch = master
+    deploy:
+      provider: npm
+      email: kmalakoff@gmail.com
+      api_key:
+        secure: PLyMK2hhpzb+mNyAFPLjcbtwQW4FtcVi+YZ7sRohGNl6DKx8HidQM6VtPvtUFR+R1iECuRGXLuPxoZwjFNiSOGy0kmwCCeniUw0vFVLtdwcyFS4lgoJPjmu630AcwmTd/mmNGegYYlYBBe8rLbjXHWN2uha0IOIp99/gKpuz9bNn8939TKLMMI4qfvHNl4qBmRWu2H7Sl1LVl6e7vD/GPNCyHalMZrGiWPVtj1fYrdo1qiPNEjOjmI3C5ceJlcF0XE81taV9rguz1AxSVPm5L4ggFdm5QYETre2uun9tFtBhGLlOrlhBydzVag/Eyo0IPo2xgRr/fWu4kgMSO3PNufLjP37OWQ5NkxHxLA0Aycp3EJCn7MziivDa5uvvcxlUXCXmeNr/LGTmuEINopIUi1Dm4KB65dmjpAq97VsgRUioFiOmejsUizKu9omy0MQ+uWe7plOhNswD1KI0GtsMllOgUdvGChe5MtTojiIhftJ6OYuy1OiWD0Nn3l2WggPdpi34QBJKc3sdVq8Ei5bRheWUnmdSxiewsANFMhKkRH2jbpXNp5WvLyqa9/ze3R1qi6z+KvhUyorzPRngHA/A6trqTfepQkHpqIBpfzogWZ28rW7HRLX5+U0cjHrNddpKSteJaJbDHM2ELG5UaNSWSV+ro6G9CZ2rCxE6SRiEOQY=
+      on:
+        tags: true
+      skip_cleanup: 'true'
+    install: skip
+    script: skip
+    after_success: skip
 before_install:
-  - npm uninstall node-version-use -g
+- npm uninstall node-version-use -g
 script:
-  - npm install node-version-use -g
-  - nvu engines npm test
+- npm install node-version-use -g
+- nvu engines npm test
