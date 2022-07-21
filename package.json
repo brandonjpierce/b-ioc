@@ -29,8 +29,8 @@
     "lib"
   ],
   "scripts": {
-    "build": "jsdoc -t ./node_modules/tsd-jsdoc/dist -r src -d . && mv types.d.ts src/index.d.ts",
-    "docs:api": "jsdoc2md --files src/**/*.js > api.md",
+    "build": "jsdoc -t ./node_modules/tsd-jsdoc/dist -r lib -d . && mv types.d.ts lib/index.d.ts",
+    "docs:api": "jsdoc2md --files lib/**/*.js > api.md",
     "docs:build": "npm run docs:api && retype init && retype build",
     "docs:watch": "npm run docs:api && retype watch",
     "prepublishOnly": "npm run build && npm test",
@@ -41,7 +41,8 @@
     "jsdoc": "^3.6.11",
     "jsdoc-to-markdown": "^7.1.1",
     "retypeapp": "^2.4.0",
-    "tape": "^5.5.3"
+    "tape": "^5.5.3",
+    "tsd-jsdoc": "^2.5.0"
   },
   "engines": {
     "node": ">=4"
