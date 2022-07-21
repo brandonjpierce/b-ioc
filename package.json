@@ -2,14 +2,6 @@
   "name": "b-ioc-js",
   "version": "2.1.1",
   "description": "A magic free, dirt simple IoC container for Javascript.",
-  "main": "src/index.js",
-  "directories": {
-    "example": "example",
-    "test": "test"
-  },
-  "engines": {
-    "node": ">=4"
-  },
   "keywords": [
     "require",
     "dependency",
@@ -21,31 +13,37 @@
     "ts",
     "typescript"
   ],
-  "devDependencies": {
-    "@randomgoods/tap-spec": "^5.0.1",
-    "jsdoc": "^3.6.7",
-    "jsdoc-to-markdown": "^7.0.1",
-    "retypeapp": "^1.7.0",
-    "tape": "^5.2.2",
-    "tsd-jsdoc": "^2.5.0"
+  "homepage": "https://github.com/brandonjpierce/b-ioc",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brandonjpierce/b-ioc.git"
   },
-  "scripts": {
-    "test": "tape test/index.js | tap-spec",
-    "build": "jsdoc -t ./node_modules/tsd-jsdoc/dist -r src -d . && mv types.d.ts src/index.d.ts",
-    "prepublishOnly": "npm run build && npm test",
-    "docs:api": "jsdoc2md --files src/**/*.js > api.md",
-    "docs:build": "npm run docs:api && retype init && retype build",
-    "docs:watch": "npm run docs:api && retype watch"
-  },
+  "license": "MIT",
   "author": {
     "name": "Brandon Pierce",
     "email": "brandon@brandonjpierce.com",
     "url": "http://brandonjpierce.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/brandonjpierce/b-ioc.git"
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "jsdoc -t ./node_modules/tsd-jsdoc/dist -r src -d . && mv types.d.ts src/index.d.ts",
+    "docs:api": "jsdoc2md --files src/**/*.js > api.md",
+    "docs:build": "npm run docs:api && retype init && retype build",
+    "docs:watch": "npm run docs:api && retype watch",
+    "prepublishOnly": "npm run build && npm test",
+    "test": "tape test/index.js",
+    "test:engines": "nvu engines npm test"
   },
-  "homepage": "https://github.com/brandonjpierce/b-ioc",
-  "license": "MIT"
+  "devDependencies": {
+    "jsdoc": "^3.6.11",
+    "jsdoc-to-markdown": "^7.1.1",
+    "retypeapp": "^2.4.0",
+    "tape": "^5.5.3"
+  },
+  "engines": {
+    "node": ">=4"
+  }
 }
