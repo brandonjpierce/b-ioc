@@ -1,12 +1,7 @@
 {
-  "name": "b-ioc",
-  "version": "1.2.0",
-  "description": "A magic free, dirt simple IoC container for Node.",
-  "main": "src/index.js",
-  "directories": {
-    "example": "example",
-    "test": "test"
-  },
+  "name": "b-ioc-js",
+  "version": "2.1.2",
+  "description": "A magic free, dirt simple IoC container for Javascript.",
   "keywords": [
     "require",
     "dependency",
@@ -14,30 +9,43 @@
     "di",
     "dependency injection",
     "ioc",
-    "inversion of control"
+    "inversion of control",
+    "ts",
+    "typescript"
   ],
-  "dependencies": {},
-  "devDependencies": {
-    "gitbook-plugin-github": "^2.0.0",
-    "tap-spec": "^4.1.1",
-    "tape": "^4.4.0"
+  "homepage": "https://github.com/brandonjpierce/b-ioc",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brandonjpierce/b-ioc.git"
   },
-  "scripts": {
-    "test": "tape test/index.js | tap-spec",
-    "docs:prepare": "gitbook install",
-    "docs:watch": "npm run docs:prepare && gitbook serve",
-    "docs:build": "npm run docs:prepare && rm -rf _book && gitbook build",
-    "docs:publish": "npm run docs:build && cd _book && git init && git config user.email 'brandon@brandonjpierce.com' && git commit --allow-empty -m 'Update docs' && git checkout -b gh-pages && git add . && git commit -am 'Update docs' && git push git@github.com:brandonjpierce/b-ioc gh-pages --force"
-  },
+  "license": "MIT",
   "author": {
     "name": "Brandon Pierce",
     "email": "brandon@brandonjpierce.com",
     "url": "http://brandonjpierce.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/brandonjpierce/b-ioc.git"
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "",
+    "docs:api": "jsdoc2md --files lib/**/*.js > api.md",
+    "docs:build": "npm run docs:api && retype init && retype build",
+    "docs:watch": "npm run docs:api && retype watch",
+    "format": "biome check --apply-unsafe src/ test/",
+    "prepublishOnly": "npm run build && npm test",
+    "test": "tape test/index.js",
+    "test:engines": "nvu engines npm test"
   },
-  "homepage": "https://github.com/brandonjpierce/b-ioc",
-  "license": "MIT"
+  "devDependencies": {
+    "@biomejs/biome": "^1.5.3",
+    "jsdoc-to-markdown": "^8.0.1",
+    "retypeapp": "^3.5.0",
+    "tape": "^5.7.4",
+    "tsd-jsdoc": "^2.5.0"
+  },
+  "engines": {
+    "node": ">=4"
+  }
 }
