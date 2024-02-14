@@ -29,19 +29,20 @@
     "lib"
   ],
   "scripts": {
-    "build": "jsdoc -t ./node_modules/tsd-jsdoc/dist -r lib -d . && mv types.d.ts lib/index.d.ts",
+    "build": "",
     "docs:api": "jsdoc2md --files lib/**/*.js > api.md",
     "docs:build": "npm run docs:api && retype init && retype build",
     "docs:watch": "npm run docs:api && retype watch",
+    "format": "biome check --apply-unsafe src/ test/",
     "prepublishOnly": "npm run build && npm test",
     "test": "tape test/index.js",
     "test:engines": "nvu engines npm test"
   },
   "devDependencies": {
-    "jsdoc": "^3.6.11",
-    "jsdoc-to-markdown": "^7.1.1",
-    "retypeapp": "^2.4.0",
-    "tape": "^5.5.3",
+    "@biomejs/biome": "^1.5.3",
+    "jsdoc-to-markdown": "^8.0.1",
+    "retypeapp": "^3.5.0",
+    "tape": "^5.7.4",
     "tsd-jsdoc": "^2.5.0"
   },
   "engines": {

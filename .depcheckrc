@@ -1,1 +1,1 @@
-ignores: ["depcheck", "tsd-jsdoc"]
+ignores: ["b-ioc-js", "depcheck", "ts-dev-stack", "@types/*", "tsd-jsdoc", "jsdoc"]
