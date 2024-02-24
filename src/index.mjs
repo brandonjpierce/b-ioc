@@ -1,4 +1,3 @@
-"use strict";
 /**
  * IoC Module
  * @module b-ioc-js
@@ -10,19 +9,20 @@ let singletons = {};
 let resolvedSingletons = {};
 
 function isString(obj) {
-  return Object.prototype.toString.call(obj) === "[object String]";
+  return Object.prototype.toString.call(obj) === '[object String]';
 }
 
 function isObject(obj) {
-  var type = typeof obj;
-  return type === "function" || (type === "object" && !!obj);
+  const type = typeof obj;
+  return type === 'function' || (type === 'object' && !!obj);
 }
 
 function isFunction(obj) {
-  return typeof obj == "function" || false;
+  return typeof obj === 'function' || false;
 }
 
 function inObject(key, obj) {
+  // biome-ignore lint/suspicious/noPrototypeBuiltins: <explanation>
   return obj.hasOwnProperty(key);
 }
 
@@ -95,7 +95,8 @@ exports.singleton = function singleton(binding, closure) {
  * @returns {A} The instance of the binding
  */
 exports.use = function use(binding) {
-  var args = Array.prototype.slice.call(arguments, 1);
+  // biome-ignore lint/style/noArguments: <explanation>
+  const args = Array.prototype.slice.call(arguments, 1);
 
   // first check bindings
   if (inObject(binding, bindings)) {
@@ -105,7 +106,7 @@ exports.use = function use(binding) {
 
     resolvedBindings[binding] = true;
 
-    var instance = bindings[binding].apply(null, args);
+    const instance = bindings[binding].apply(null, args);
 
     resolvedBindings[binding] = false;
 
@@ -139,27 +140,21 @@ exports.use = function use(binding) {
  */
 exports.make = function make(Obj) {
   if (!isFunction(Obj)) {
-    throw new Error(
-      ".make implementation error, expected function got: " + typeof obj
-    );
+    throw new Error(`.make implementation error, expected function got: ${typeof obj}`);
   }
 
   if (!Obj.inject) {
-    throw new Error(
-      `.make requires ${obj.constructor.name} to have a static inject method.`
-    );
+    throw new Error(`.make requires ${obj.constructor.name} to have a static inject method.`);
   }
 
-  var dependencies = Obj.inject();
+  const dependencies = Obj.inject();
 
   if (dependencies.length) {
-    var resolved = [];
+    const resolved = [];
 
-    dependencies.forEach(dependency => {
+    dependencies.forEach((dependency) => {
       if (!isString(dependency) && !isObject(dependency)) {
-        throw new Error(
-          "static .inject implementation error, a string or object is required."
-        );
+        throw new Error('static .inject implementation error, a string or object is required.');
       }
 
       // string based binding
@@ -175,7 +170,6 @@ exports.make = function make(Obj) {
     });
 
     return new (Function.prototype.bind.apply(Obj, [null].concat(resolved)))();
-  } else {
-    return new Obj();
   }
+  return new Obj();
 };

@@ -24,27 +24,33 @@
     "email": "brandon@brandonjpierce.com",
     "url": "http://brandonjpierce.com"
   },
-  "main": "lib/index.js",
+  "main": "dist/cjs/index.js",
+  "types": "dist/types/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
-    "build": "jsdoc -t ./node_modules/tsd-jsdoc/dist -r lib -d . && mv types.d.ts lib/index.d.ts",
-    "docs:api": "jsdoc2md --files lib/**/*.js > api.md",
-    "docs:build": "npm run docs:api && retype init && retype build",
-    "docs:watch": "npm run docs:api && retype watch",
-    "prepublishOnly": "npm run build && npm test",
-    "test": "tape test/index.js",
-    "test:engines": "nvu engines npm test"
+    "build": "tsds build",
+    "deploy": "tsds deploy",
+    "format": "biome check --apply-unsafe src/ test/",
+    "test": "tsds link && ts-swc tape test/**/*.test.cjs && tsds unlink",
+    "test:engines": "nvu engines npm test",
+    "version": "tsds version"
   },
   "devDependencies": {
-    "jsdoc": "^3.6.11",
-    "jsdoc-to-markdown": "^7.1.1",
-    "retypeapp": "^2.4.0",
-    "tape": "^5.5.3",
-    "tsd-jsdoc": "^2.5.0"
+    "@biomejs/biome": "^1.5.3",
+    "@types/tape": "^5.6.4",
+    "depcheck": "^1.4.7",
+    "tape": "^5.7.5",
+    "ts-dev-stack": "^0.15.8"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=0.8"
+  },
+  "tsds": {
+    "source": "src/index.mjs",
+    "targets": [
+      "cjs"
+    ]
   }
 }
